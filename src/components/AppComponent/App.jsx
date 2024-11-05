@@ -1,17 +1,23 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import NewsArticleCard from "../NewsArticleCardComponent/NewsArticleCard";
+import ArticleCard from "../ArticleCard/ArticleCard.jsx";
 import SearchBar from "../SearchBarComponent/SearchBar";
+import { countSentences, countWords, countSyllables, computeFleschIndex, classifyArticleReadability, computeGradeLevel } from '../../utils/fleschUtils.js';
 
 function addIndexes(newsArticles) {
   return newsArticles.map((newsArticle) => {
-    // TODO
+    const sentenceCount = countSentences(newsArticle.content);
+    const wordCount = countWords(newsArticle.content);
+    const syllableCount = countSyllables(newsArticle.content);
+    const fleschIndex = computeFleschIndex(syllableCount, wordCount, sentenceCount);
+    const gradeLevel = computeGradeLevel(syllableCount, wordCount, sentenceCount);
+    const articleReadability = classifyArticleReadability(fleschIndex);
 
     return {
       ...newsArticle,
-      fleshIndex: 0,
-      gradeLevel: "0",
-      articleReadability: "0",
+      fleschIndex,
+      gradeLevel,
+      articleReadability,
     };
   });
 }
@@ -41,7 +47,7 @@ function App() {
       <SearchBar onSearch={handleSearch} />
       <main className="news-articles-container">
         {newsArticles.map((newsArticle, i) => (
-          <NewsArticleCard key={i} newsArticle={newsArticle} />
+          <ArticleCard key={i} newsArticle={newsArticle} />
         ))}
       </main>
     </>

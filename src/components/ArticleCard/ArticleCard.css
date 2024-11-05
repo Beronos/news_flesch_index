@@ -1,0 +1,18 @@
+div.card {
+  width: 24%;
+  border-radius: 10px;
+  background-color: #42414c;
+}
+
+div.card h1,h2,p {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #d0cfd2;
+}
+img {
+  width: -webkit-fill-available;
+  height: auto;
+  border-radius: 10px 10px 0px 0px;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}

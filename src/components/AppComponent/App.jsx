@@ -1,7 +1,13 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { Routes, Route, Link, Router } from "react-router-dom";
 import "./App.css";
 import NewsArticleCard from "../NewsArticleCardComponent/NewsArticleCard";
 import SearchBar from "../SearchBarComponent/SearchBar";
+import FullArticle from "../FullArticleComponent/FullArticle"; // Import the new component
+// import Preferences from "/Users/mahitauppuluri/Desktop/news_flesch_index/src/context/PreferencesContext"; // Import Preferences
+import User from "../UserComponent/User"; // Import User
+import { NewsContext } from '/Users/mahitauppuluri/Desktop/news_flesch_index/src/context/NewsContext';
+import { PreferencesProvider } from '../../context/PreferencesContext';
 
 function addIndexes(newsArticles) {
   return newsArticles.map((newsArticle) => {
@@ -17,19 +23,19 @@ function addIndexes(newsArticles) {
 }
 
 function App() {
-  const [newsArticles, setNewsArticles] = useState([]);
+  const { newsArticles } = useContext(NewsContext);;
 
-  useEffect(() => {
-    fetch("data/news_articles.json")
-      .then((result) => result.json())
-      .then((data) => {
-        const newsArticlesData = addIndexes(data);
-        setNewsArticles(newsArticlesData);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("data/news_articles.json")
+  //     .then((result) => result.json())
+  //     .then((data) => {
+  //       const newsArticlesData = addIndexes(data);
+  //       setNewsArticles(newsArticlesData);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   const handleSearch = (searchTerm) => {
     // TODO: filtering
@@ -39,10 +45,21 @@ function App() {
   return (
     <>
       <SearchBar onSearch={handleSearch} />
+      <nav>
+        <Link to="/preferences">Preferences</Link>
+        <Link to="/user">User Preferences</Link>
+      </nav>
       <main className="news-articles-container">
-        {newsArticles.map((newsArticle, i) => (
-          <NewsArticleCard key={i} newsArticle={newsArticle} />
-        ))}
+      <Routes>
+        <Route path="/" element={
+            newsArticles.map((newsArticle, i) => (
+              <NewsArticleCard key={i} newsArticle={newsArticle} />
+            ))
+          }/>
+         <Route path="/article" element={<FullArticle />} />
+         <Route path="/preferences" element={<PreferencesProvider />} /> {/* Add route for preferences */}
+         <Route path="/user" element={<User />} /> {/* Add route for user preferences summary */}
+        </Routes>
       </main>
     </>
   );

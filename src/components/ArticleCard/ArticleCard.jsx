@@ -1,4 +1,5 @@
 import "./ArticleCard.css";
+import { Link } from 'react-router-dom';
 
 function ArticleCard({ newsArticle }) {
   console.log(newsArticle);
@@ -15,7 +16,9 @@ function ArticleCard({ newsArticle }) {
       <div className="card">
         <img src={newsArticle.large_image_url} alt="" />
         <p>{newsArticle.domain}</p>
+        <Link to={`/article/${encodeURIComponent(newsArticle.title)}`} state={{ article: newsArticle }}>
         <h1>{newsArticle.title}</h1>
+      </Link>
         <h2>{formattedDate}</h2>
         <p>
           {newsArticle.content.length > 100

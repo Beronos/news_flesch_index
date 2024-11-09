@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./SearchBar.css";
+import { readabilityLevels } from "../../utils/fleschUtils.js";
 
 function SearchBar({ onSearch }) {
   const [selectedGrade, setSelectedGrade] = useState("All Grades");
@@ -17,14 +18,14 @@ function SearchBar({ onSearch }) {
         onChange={handleGradeChange}
         className="grade-dropdown"
       >
-        <option value="All Grades">All Grades</option>
-        <option value="5th grade">5th grade</option>
-        <option value="6th grade">6th grade</option>
-        <option value="7th grade">7th grade</option>
-        <option value="8th & 9th grade">8th & 9th grade</option>
-        <option value="10th to 12th grade">10th to 12th grade</option>
-        <option value="College">College</option>
-        <option value="College graduate">College graduate</option>
+        <option value="All Grades">Select a grade level (All Grades)</option>
+        {readabilityLevels.map(({ level }, i) => {
+          return (
+            <option key={i} value={level}>
+              {level}
+            </option>
+          );
+        })}
       </select>
     </div>
   );

@@ -5,3 +5,38 @@ main.news-articles-container {
   column-gap: 10px;
   row-gap: 10px;
 }
+/* Search bar container styling */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  background-color: #333333;
+  border-radius: 30px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Icon styling */
+.search-icon {
+  font-size: 1.2em;
+  color: #CCCCCC;
+  margin-right: 10px;
+}
+
+.dropdown-icon {
+  font-size: 1.2em;
+  color: #CCCCCC;
+  margin-left: 10px;
+}
+
+/* Input field styling */
+.search-input {
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+  outline: none;
+  font-size: 1em;
+  padding: 5px 0;
+}

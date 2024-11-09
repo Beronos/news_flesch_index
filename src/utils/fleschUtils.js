@@ -29,8 +29,8 @@ export const countSentences = (text) => {
     if (fleschIndex >= 90) return '5th grade';
     if (fleschIndex >= 80) return '6th grade';
     if (fleschIndex >= 70) return '7th grade';
-    if (fleschIndex >= 60) return '8th & 9th grade';
-    if (fleschIndex >= 50) return '10th to 12th grade';
+    if (fleschIndex >= 60) return '8th & 9th ';
+    if (fleschIndex >= 50) return '10th to 12th ';
     if (fleschIndex >= 30) return 'College';
     return 'College graduate';
   };

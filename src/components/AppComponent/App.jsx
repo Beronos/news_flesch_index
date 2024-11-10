@@ -20,7 +20,7 @@ function App() {
     fetch("/data/news_articles.json")
       .then((result) => result.json())
       .then((data) => {
-        const newsArticlesData = addFleshIndexes(data).slice(0, 100);
+        const newsArticlesData = addFleshIndexes(data);
         setNewsArticles(newsArticlesData);
         setFilteredArticles(newsArticlesData);
       })

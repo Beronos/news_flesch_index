@@ -1,18 +1,16 @@
-import React from "react";
+import "./FullArticle.css";
 
 function FullArticle({ newsArticle, onClick }) {
-  if (!newsArticle) {
-    return <h1>hahah</h1>;
-  }
-
   return (
     <>
-      <button onClick={onClick}>Go back</button>
-      <div>
-        <h1>{newsArticle.articleTitle}</h1>
+      <button class="go-back-btn" onClick={onClick}>
+        Go back
+      </button>
+      <div className="full-article">
+        <img src={newsArticle.large_image_url} alt={newsArticle.articleTitle} />
+        <h1>{newsArticle.title}</h1>
         <h2>{newsArticle.topic}</h2>
         <span>{newsArticle.domain}</span>
-        <img src={newsArticle.large_image_url} alt={newsArticle.articleTitle} />
         <p>{newsArticle.content}</p>
         <div>
           <ul>

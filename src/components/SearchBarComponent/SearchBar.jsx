@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "./SearchBar.css";
 import { readabilityLevels } from "../../utils/fleschUtils.js";
+import "./SearchBar.css";
 
 function SearchBar({ onSearch }) {
   const [selectedGrade, setSelectedGrade] = useState("All Grades");
@@ -8,7 +8,7 @@ function SearchBar({ onSearch }) {
   const handleGradeChange = (event) => {
     const selected = event.target.value;
     setSelectedGrade(selected);
-    onSearch(selected); // Call onSearch with selected grade level
+    onSearch(selected);
   };
 
   return (

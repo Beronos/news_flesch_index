@@ -5,16 +5,27 @@ article.card {
 }
 
 article.card h1,
-h2,
-p {
+article.card h2,
+article.card p {
   margin-left: 10px;
   font-size: 12px;
   color: #d0cfd2;
 }
-img {
+article.card img {
   width: -webkit-fill-available;
   height: auto;
   border-radius: 10px 10px 0px 0px;
-  object-fit: cover;
+  object-fit: fill;
   aspect-ratio: 16 / 9;
+}
+
+article.card:hover {
+  cursor: pointer;
+  transform: translateY(-5px) scale(1.01); /* Move up and scale up slightly */
+}
+
+@media (max-width: 768px) {
+  article.card {
+    width: 100%;
+  }
 }

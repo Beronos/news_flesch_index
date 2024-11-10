@@ -1,0 +1,36 @@
+div.modal {
+  display: flex;
+  width: 100%;
+  min-height: 200px;
+  justify-content: center;
+  position: fixed;
+  color: white;
+  z-index: 1;
+}
+
+div.modal div.preferences {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  background-color: #42414c;
+}
+
+div.close-button-container {
+  width: 100%;
+  margin-top: 5px;
+  margin-right: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button.close-button {
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+button.close-button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}

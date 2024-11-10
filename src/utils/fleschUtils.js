@@ -49,7 +49,7 @@ export const classifyArticleReadability = (fleschIndex) => {
 };
 
 // Function to add readability indexes to articles
-export function addIndexes(newsArticles) {
+export function addFleshIndexes(newsArticles) {
   return newsArticles.map((newsArticle) => {
     const sentenceCount = countSentences(newsArticle.content);
     const wordCount = countWords(newsArticle.content);

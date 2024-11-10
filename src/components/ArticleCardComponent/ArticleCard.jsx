@@ -25,6 +25,7 @@ function ArticleCard({ newsArticle, onClick }) {
         </p>
         <p>{newsArticle.articleReadability}</p>
         <p>{newsArticle.fleschIndex}</p>
+        <p>{newsArticle.topic}</p>
       </article>
     </>
   );

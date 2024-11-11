@@ -1,6 +1,15 @@
 import "./FullArticle.css";
 
 function FullArticle({ newsArticle, onClick }) {
+  
+  const date = new Date(newsArticle.published_date);
+  const formattedDate = date.toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+
   return (
     <>
       <button class="go-back-btn" onClick={onClick}>
@@ -8,29 +17,27 @@ function FullArticle({ newsArticle, onClick }) {
       </button>
       <div className="full-article">
         <img src={newsArticle.large_image_url} alt={newsArticle.articleTitle} />
-        <h1>{newsArticle.title}</h1>
-        <h2>{newsArticle.topic}</h2>
-        <span>{newsArticle.domain}</span>
+        <span className="article-domain">{newsArticle.domain}</span>
+        <h1 className="full-article-title">{newsArticle.title}</h1>
+        <h4>{formattedDate}</h4>
+        <h3>{newsArticle.topic}</h3>
         <p>{newsArticle.content}</p>
-        <div>
+        <div className="readability-table">
           <ul>
             <li>
-              <strong>Word Count:</strong> {newsArticle.wordCount}
+              <strong>Word Count </strong> {newsArticle.wordCount}
             </li>
             <li>
-              <strong>Sentence Count:</strong> {newsArticle.sentenceCount}
+              <strong>Sentence Count </strong> {newsArticle.sentenceCount}
             </li>
             <li>
-              <strong>Syllable Count:</strong> {newsArticle.syllableCount}
+              <strong>Syllable Count </strong> {newsArticle.syllableCount}
             </li>
             <li>
-              <strong>Flesch Index:</strong> {newsArticle.fleschIndex}
+              <strong>Flesch Index </strong> {newsArticle.fleschIndex}
             </li>
             <li>
-              <strong>Grade Level:</strong> {newsArticle.gradeLevel}
-            </li>
-            <li>
-              <strong>Article Readability:</strong>{" "}
+              <strong>Grade Level </strong> {" "}
               {newsArticle.articleReadability}
             </li>
           </ul>

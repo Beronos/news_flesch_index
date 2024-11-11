@@ -34,3 +34,13 @@ button.close-button:hover {
   cursor: pointer;
   transform: scale(1.2);
 }
+
+@media (max-width: 768px) {
+  div.modal {
+    width: 75%;
+  }
+
+  div.modal div.preferences {
+    padding: 10px;
+  }
+}

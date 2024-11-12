@@ -67,7 +67,11 @@ button.close-button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 20px;
+  margin: 0px 15px 20px 15px;
+}
+
+.preference-item {
+  margin: 20px 0px 20px 0px;
 }
 
 @media (max-width: 768px) {

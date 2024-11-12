@@ -77,4 +77,8 @@ button.go-back-btn:hover {
   .full-article img {
     width: 75%;
   }
+  .full-article{
+    padding: 5px;
+    margin: 0;
+  }
 }

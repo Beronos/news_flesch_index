@@ -14,6 +14,7 @@ div.modal div.preferences {
   align-items: center;
   width: 50%;
   background-color: #42414c;
+  border-radius: 5px;
 }
 
 div.close-button-container {
@@ -33,4 +34,38 @@ button.close-button {
 button.close-button:hover {
   cursor: pointer;
   transform: scale(1.2);
+}
+
+.preferences label {
+  padding: 10px;
+  border: solid 1px;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.preferences label:hover {
+  cursor: pointer;
+  background-color: #d0cfd2;
+  color: #42414c;
+}
+
+.preferences input[type="checkbox"] {
+  display: none;
+}
+
+.preferences input[type="checkbox"]:checked + label {
+  background-color: #d0cfd2;
+  color: #42414c;
+}
+
+.preferences input[type="checkbox"]:checked + label:hover {
+  background-color: #42414c;
+  color: #d0cfd2;
+}
+
+.preference-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
 }

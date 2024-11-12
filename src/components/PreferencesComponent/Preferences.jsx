@@ -32,19 +32,24 @@ function Preferences({ closePreferences }) {
             X
           </button>
         </div>
-        <h1>Select your preferred topics</h1>
+        <h4>Select news categories to fine-tune your feed.</h4>
         <form>
-          {topics.map((topic, index) => (
-            <label key={index}>
-              <input
-                type="checkbox"
-                value={topic}
-                checked={selectedTopics.includes(topic)}
-                onChange={() => handleTopicChange(topic)}
-              />
-              {topic}
-            </label>
-          ))}
+          <div className="preference-list">
+            {topics.map((topic, index) => (
+              <div key={index} className="preference-item">
+                <input
+                  type="checkbox"
+                  id={`checkbox-${index}`}
+                  value={topic}
+                  checked={selectedTopics.includes(topic)}
+                  onChange={() => handleTopicChange(topic)}
+                />
+                <label htmlFor={`checkbox-${index}`}>
+                  {topic}
+                </label>
+              </div>
+            ))}
+          </div>
         </form>
       </div>
     </div>

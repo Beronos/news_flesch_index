@@ -61,10 +61,17 @@ function App() {
 
   return (
     <div className="news-articles-app">
-      <Navigation
-        togglePreferences={() => setIsPreferencesOpened(!isPreferencesOpened)}
-      />
-      <h1>Article Search</h1>
+      {selectedNewsArticle
+        ? <></>
+        : 
+        <>
+          <Navigation
+            togglePreferences={() => setIsPreferencesOpened(!isPreferencesOpened)}
+          />
+          <h1>Article Search</h1>
+        </>
+        }
+
       {isPreferencesOpened && (
         <Preferences closePreferences={() => setIsPreferencesOpened(false)} />
       )}

@@ -51,11 +51,15 @@ export const computeFleschIndex = (syllableCount, wordCount, sentenceCount) => {
 };
 
 export const computeGradeLevel = (syllableCount, wordCount, sentenceCount) => {
-  return (
-    0.39 * (wordCount / sentenceCount) +
-    11.8 * (syllableCount / wordCount) -
-    15.59
-  );
+    if (wordCount === 0 || sentenceCount === 0) {
+        return 0;
+    }
+
+    return (
+        0.39 * (wordCount / sentenceCount) +
+        11.8 * (syllableCount / wordCount) -
+        15.59
+    );
 };
 
 export const classifyArticleReadability = (fleschIndex) => {

@@ -35,6 +35,7 @@ function App() {
     }
   }, [selectedNewsArticle]);
 
+  // filtering and preferences
   useEffect(() => {
     let filtered = [...newsArticles];
 
@@ -61,18 +62,20 @@ function App() {
 
   return (
     <div className="news-articles-app">
-      {selectedNewsArticle
-        ? <></>
-        : 
+      {selectedNewsArticle ? (
+        <></>
+      ) : (
         <>
           <Navigation
-            togglePreferences={() => setIsPreferencesOpened(!isPreferencesOpened)}
+            togglePreferences={() =>
+              setIsPreferencesOpened(!isPreferencesOpened)
+            }
           />
           <h1>Article Search</h1>
         </>
-        }
+      )}
 
-      {isPreferencesOpened && (
+      {isPreferencesOpened && !selectedNewsArticle && (
         <Preferences closePreferences={() => setIsPreferencesOpened(false)} />
       )}
       {selectedNewsArticle ? (
@@ -82,7 +85,7 @@ function App() {
         />
       ) : (
         <>
-          <SearchBar onSearch={handleSearch} />
+          <SearchBar onSearch={handleSearch} grade={selectedGrade} />
           <main className="news-articles-container">
             {filteredArticles.map((newsArticle, i) => (
               <ArticleCard

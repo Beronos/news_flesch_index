@@ -12,7 +12,7 @@ function FullArticle({ newsArticle, onClick }) {
 
   return (
     <>
-      <button class="go-back-btn" onClick={onClick}>
+      <button className="go-back-btn" onClick={onClick}>
         Go back
       </button>
       <div className="full-article">

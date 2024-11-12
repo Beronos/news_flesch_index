@@ -75,10 +75,6 @@ button.close-button:hover {
 }
 
 @media (max-width: 768px) {
-  div.modal {
-    width: 75%;
-  }
-
   div.modal div.preferences {
     padding: 10px;
   }

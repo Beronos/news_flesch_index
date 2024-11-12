@@ -23,8 +23,6 @@ function ArticleCard({ newsArticle, onClick }) {
             ? `${newsArticle.content.substring(0, 100)}...`
             : newsArticle.content}
         </p>
-        <p>{newsArticle.articleReadability}</p>
-        <p>{newsArticle.fleschIndex}</p>
         <p>{newsArticle.topic}</p>
       </article>
     </>
